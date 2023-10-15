@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up PHP
-        uses: github/event-logger@v3
+        uses: j-development-projects/event-logger@v3
         with:
           php-version: 8.2.10
 
