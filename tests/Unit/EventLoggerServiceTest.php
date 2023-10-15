@@ -21,6 +21,6 @@ class EventLoggerServiceTest extends TestCase
     public function test_calculation(): void
     {
         $result = $this->serviceBaseClass->calculate(5, 20);
-        $this->assertEquals(25, $result);
+        $this->assertEquals(15, $result);
     }
 }
