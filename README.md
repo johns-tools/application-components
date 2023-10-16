@@ -4,4 +4,4 @@
 
 ## Services
 
-- **LogginService / EventLogger
+- **LogginService / EventLogger**
