@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        // Application Specific
+
+        'system_event_logs' => [
+            'driver' => 'local',
+            'root' => storage_path('event_logs'),
+        ],
+
     ],
 
     /*

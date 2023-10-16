@@ -1,0 +1,1 @@
+{"meta_data":[{"log_ref":"652cc3d5ca48c","class_full":"Tests\\Feature\\EventLoggerServiceTest","class":"EventLoggerServiceTest","function":"test_add_event","date_time":"2023-10-16 05:02:13"}],"messages":[{"log_ref":"652cc3d5ca48c","message":"Creating a test event log.","access_level":0}]}
