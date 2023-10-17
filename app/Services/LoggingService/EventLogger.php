@@ -13,8 +13,6 @@ class EventLogger
 
     use EventLoggerUtilities;
 
-    // Class Instance
-    protected $eventLoggerUtilities;
     protected $log_data;
     protected $events;
 
@@ -25,7 +23,7 @@ class EventLogger
 
     public function __construct(String $identifier, $storageDriver, Array $fileMeta)
     {
-        // Checks
+        // Checks (static)
         EventLoggerChecks::checkFileMeta($fileMeta);
         EventLoggerChecks::checkIdentifier($identifier);
 
