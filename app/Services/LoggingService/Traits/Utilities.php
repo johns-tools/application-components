@@ -7,13 +7,13 @@ use Illuminate\Support\Carbon;
 
 trait Utilities
 {
-    public function constructEvent(Array $event)
+    public function constructEvent(Array $event):void
     {
         $this->events[] = $event;
         $this->addEventToLog($event);
     }
 
-    public function addEventToLog(Array $event)
+    public function addEventToLog(Array $event):bool
     {
         $logRef         = $this->generateErrorRef();
         $logFileName    = $this->createOrRetrieveLogFile();
@@ -30,17 +30,20 @@ trait Utilities
         return Storage::disk($this->storageDriver)->put($logFileName, $this->log_data);
     }
 
-    public function constructMetaData($class, $function){
+    public function constructMetaData($class, $function):array
+    {
         return ['meta' => compact('class', 'function')];
     }
-    public function constructMessage($message, $level){
+    public function constructMessage($message, $level):array
+    {
         return ['message' => compact('message', 'level')];
     }
-    public function constructException($message){
+    public function constructException($message):array
+    {
         return ['exception' => compact('message')];
     }
 
-    private function createOrRetrieveLogFile()
+    private function createOrRetrieveLogFile():string
     {
         $fileNameWithExtension = ($this->fileName . $this->identifier . $this->fileExtension);
         Storage::disk($this->storageDriver)->put($fileNameWithExtension, "");
@@ -50,20 +53,23 @@ trait Utilities
     private function generateErrorRef(){
         return uniqid();
     }
-    private function writeMessage($logRef, $message, $level){
+    private function writeMessage($logRef, $message, $level):void
+    {
         $this->log_data['messages'][] = [
             "log_ref"      => $logRef,
             "message"      => $message,
             "access_level" => $level
         ];
     }
-    private function writeException($logRef, $message){
+    private function writeException($logRef, $message):void
+    {
         $this->log_data['exceptions'][] = [
             "log_ref" => $logRef,
             "exception_message" => $message
         ];
     }
-    private function writeMetaData($logRef, $class, $function){
+    private function writeMetaData($logRef, $class, $function):void
+    {
         $this->log_data['meta_data'][] = [
             "log_ref"    => $logRef,
             "class_full" => $class,

@@ -34,7 +34,7 @@ class EventLogger
         $this->fileExtension = $fileMeta['file_extension'];
     }
 
-    public function addEvent($class, $function, $message, $level)
+    public function addEvent($class, $function, $message, $level):void
     {
         $this->constructEvent(array_merge(
             $this->constructMetaData($class, $function),
