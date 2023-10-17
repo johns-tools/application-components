@@ -32,7 +32,6 @@ class EventLogger
         $this->storageDriver = $storageDriver ?? $this->storageDriver;
         $this->fileName = $fileMeta['file_name'];
         $this->fileExtension = $fileMeta['file_extension'];
-
     }
 
     public function addEvent($class, $function, $message, $level)
