@@ -26,8 +26,8 @@ class EventLogger
     public function __construct(String $identifier, $storageDriver, Array $fileMeta)
     {
         // Checks
-        EventLoggerChecks::checkFileMetaArray($fileMeta);
-        EventLoggerChecks::checkFileMetaArray($identifier);
+        EventLoggerChecks::checkFileMeta($fileMeta);
+        EventLoggerChecks::checkIdentifier($identifier);
 
         // After checking, we can now set the required variables local to this class instance.
         $this->identifier = $identifier;
