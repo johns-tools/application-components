@@ -30,6 +30,17 @@ trait Utilities
         return Storage::disk($this->storageDriver)->put($logFileName, $this->log_data);
     }
 
+    private function createOrRetrieveLogFile():string
+    {
+        $fileNameWithExtension = ($this->fileName . $this->identifier . $this->fileExtension);
+        Storage::disk($this->storageDriver)->put($fileNameWithExtension, "");
+        return $fileNameWithExtension;
+    }
+
+    private function generateErrorRef(){
+        return uniqid();
+    }
+
     public function constructMetaData($class, $function):array
     {
         return ['meta' => compact('class', 'function')];
@@ -43,16 +54,6 @@ trait Utilities
         return ['exception' => compact('message')];
     }
 
-    private function createOrRetrieveLogFile():string
-    {
-        $fileNameWithExtension = ($this->fileName . $this->identifier . $this->fileExtension);
-        Storage::disk($this->storageDriver)->put($fileNameWithExtension, "");
-        return $fileNameWithExtension;
-    }
-
-    private function generateErrorRef(){
-        return uniqid();
-    }
     private function writeMessage($logRef, $message, $level):void
     {
         $this->log_data['messages'][] = [
