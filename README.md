@@ -5,3 +5,5 @@
 ## Services
 
 - **LoggingService / EventLogger**
+- **Traits / Utilities**
+- **Class / Checks**
