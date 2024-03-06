@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 // Service
-use App\Services\LoggingService\EventLogger;
+use JohnsTools\EventLogger\EventLogger;
 
 // Framework
 use Tests\TestCase;
