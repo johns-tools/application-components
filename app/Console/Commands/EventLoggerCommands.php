@@ -12,7 +12,7 @@ class EventLoggerCommands extends Command
 {
 
     protected $signature   = 'app:event-logger-commands';
-    protected $description = '';
+    protected $description = 'A command to interact with the event logger package.';
 
     public function handle()
     {
@@ -23,6 +23,5 @@ class EventLoggerCommands extends Command
 
         $eventLogger = new EventLogger($identity, $storageDrive, $fileMeta);
         $eventLogger->addEvent(__CLASS__, __FUNCTION__, "Test Event", 0);
-
     }
 }
