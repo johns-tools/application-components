@@ -2,32 +2,27 @@
 
 namespace App\Console\Commands;
 
+// Framework
 use Illuminate\Console\Command;
 
-//
+// Package
 use JohnsTools\EventLogger\EventLogger;
 
 class EventLoggerCommands extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'app:event-logger-commands';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
+    protected $signature   = 'app:event-logger-commands';
+    protected $description = '';
 
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
-        $eventLogger = new EventLogger();
+        $identity = uniqid();
+        $storageDrive = 'system_event_logs';
+        $fileMeta['file_name'] = "log_event_";
+        $fileMeta['file_extension'] = ".json";
+
+        $eventLogger = new EventLogger($identity, $storageDrive, $fileMeta);
+        $eventLogger->addEvent(__CLASS__, __FUNCTION__, "Test Event", 0);
+
     }
 }

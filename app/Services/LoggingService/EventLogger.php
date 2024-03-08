@@ -28,13 +28,13 @@ class EventLogger
         EventLoggerChecks::checkIdentifier($identifier);
 
         // After checking, we can now set the required variables local to this class instance.
-        $this->identifier = $identifier;
+        $this->identifier    = $identifier;
         $this->storageDriver = $storageDriver ?? $this->storageDriver;
-        $this->fileName = $fileMeta['file_name'];
+        $this->fileName      = $fileMeta['file_name'];
         $this->fileExtension = $fileMeta['file_extension'];
     }
 
-    public function addEvent($class, $function, $message, $level):void
+    public function addEvent($class, $function, $message, $level)
     {
         $this->constructEvent(array_merge(
             $this->constructMetaData($class, $function),

@@ -7,10 +7,11 @@ use Illuminate\Support\Carbon;
 
 trait Utilities
 {
-    public function constructEvent(Array $event):void
+    public function constructEvent(Array $event) 
     {
         $this->events[] = $event;
         $this->addEventToLog($event);
+
     }
 
     public function addEventToLog(Array $event):bool
