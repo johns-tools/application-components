@@ -20,7 +20,7 @@ trait Utilities
      * @return void
      *
     */
-    public function constructEvent(Array $event) : void
+    public function constructEvent(array $event) : void
     {
         $this->events[] = $event;
         $this->addEventToLog($event);
@@ -52,7 +52,7 @@ trait Utilities
      * ]
      *
     */
-    public function addEventToLog(Array $event) : bool
+    public function addEventToLog(array $event) : bool
     {
         $logRef         = $this->generateErrorRef();
         $logFileName    = $this->createOrRetrieveLogFile();
@@ -111,7 +111,7 @@ trait Utilities
      * @return array An array containing metadata for the event, with keys 'meta', 'class', and 'function'.
      *
      */
-    public function constructMetaData($class, $function) : array
+    public function constructMetaData(string $class, string $function) : array
     {
         return ['meta' => compact('class', 'function')];
     }

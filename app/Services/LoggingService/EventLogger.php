@@ -3,10 +3,10 @@
 namespace App\Services\LoggingService;
 
 // Traits
-use App\Services\LoggingService\Traits\Utilities as EventLoggerUtilities;
+use JohnsTools\EventLogger\Traits\Utilities as EventLoggerUtilities;
 
 // Support Classes
-use App\Services\LoggingService\Class\Checks as EventLoggerChecks;
+use JohnsTools\EventLogger\Services\SystemCheckService;
 
 class EventLogger
 {
