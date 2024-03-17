@@ -1,26 +1,13 @@
 <?php
 
+// Framework
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+// Controllers
+use App\Http\Controllers\JsonStoreController;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) 
-{
-    return $request->user();
-});
+/**** Application API Endpoints *****/
 
-Route::get('/trigger-test', function (Request $request) 
-{
-    $data = [1,2,3];
-    return json_encode($data);
-});
+// Store the input as a JSON file.
+Route::post('/store-json', [JsonStoreController::class, 'store']);
