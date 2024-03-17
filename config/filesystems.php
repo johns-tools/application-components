@@ -56,8 +56,7 @@ return [
             'throw' => false,
         ],
 
-        // Application Specific
-
+        // Application specific storage locations.
         'system_event_logs' => [
             'driver' => 'local',
             'root' => storage_path('event_logs'),

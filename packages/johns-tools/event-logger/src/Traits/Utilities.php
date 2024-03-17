@@ -2,8 +2,10 @@
 
 namespace JohnsTools\EventLogger\Traits;
 
+// Framework
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Carbon;
+use Log;
 
 trait Utilities
 {
@@ -65,7 +67,6 @@ trait Utilities
         isset($event['exception']) && $this->writeException($logRef, $event['exception']['message']);
 
         $this->log_data = json_encode($this->log_data);
-
         return Storage::disk($this->storageDriver)->put($logFileName, $this->log_data);
     }
 
