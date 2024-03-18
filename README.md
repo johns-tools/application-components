@@ -1,9 +1,5 @@
+
+Need to re-add:
+
 ## CI Workflow Setup
-
 - **PHPUnit tests**
-
-## Services
-
-- **LoggingService / EventLogger**
-- **Traits / Utilities**
-- **Class / Checks**
